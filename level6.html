@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Where's Waldo? - Level 6</title>
+    <link rel="stylesheet" href="level6.css" />
+    <link rel="stylesheet" href="game.css" />
+  </head>
+  <body data-level="level6.html">
+    <header class="header">
+      <img src="assets/icons/waldoheader.jpg" alt="Waldo Icon" class="logo" />
+      <h1>
+        <span class="text-blue">Where’s</span>
+        <span class="text-red">Waldo?</span>
+        Play Online
+      </h1>
+      <a href="home.html" class="back-btn">Back to Home</a>
+    </header>
+
+    <!-- Status Bar -->
+    <div id="status-bar">
+      <div class="char-status" data-char="waldo">
+        <img src="assets/icons/waldo.png" alt="Waldo" />
+        <span class="time"></span>
+        <div class="checkmark">✔</div>
+      </div>
+    </div>
+
+    <!-- Game Container -->
+    <div id="game-container">
+      <img id="scene" src="assets/level6-scene.jpg" alt="Level 6 Scene" />
+
+      <!-- Debug rectangle -->
+
+      <!-- Click menu -->
+      <div id="click-menu" class="click-menu">
+        <button data-char="waldo">
+          <img src="assets/icons/waldo.png" alt="Waldo" />
+          <span>Waldo</span>
+        </button>
+      </div>
+    </div>
+
+    <div id="message"></div>
+
+    <!-- Level Complete Popup -->
+    <div id="level-complete" class="level-complete">
+      <div class="popup">
+        <h2 id="level-text">Level Completed!</h2>
+
+        <textarea
+          id="level-comment"
+          placeholder="Add a comment (optional)..."
+        ></textarea>
+        <p id="level-submission-error"></p>
+
+        <button id="next-level-btn">Submit & Play Next Level</button>
+      </div>
+    </div>
+
+    <!-- Level Leaderboard -->
+    <section id="level-leaderboard-section">
+      <h2>Level 6 Leaderboard</h2>
+      <table class="level-leaderboard-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Player</th>
+            <th>Time</th>
+            <th>Comment</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="level-leaderboard-body">
+          <!-- Populated by JS -->
+        </tbody>
+      </table>
+    </section>
+    <!-- Final Game Completion Popup -->
+    <div id="final-run-modal">
+      <div class="final-run-box">
+        <h2>🎉 Congratulations!</h2>
+        <p id="final-run-time-text">You finished all levels!</p>
+
+        <label>Add a comment (optional):</label>
+        <textarea id="final-comment" placeholder="Your comment..."></textarea>
+        <p
+          id="submission-error"
+          style="color: red; display: none; margin-top: 5px; font-size: 14px"
+        ></p>
+
+        <button id="submit-final-score">Submit Score</button>
+        <button id="play-again">Play Again</button>
+      </div>
+    </div>
+
+    <!-- Player Name Modal -->
+    <div id="name-modal" class="name-modal">
+      <div class="name-box">
+        <h3>Enter Your Player Name</h3>
+        <input
+          id="player-name-input"
+          type="text"
+          maxlength="20"
+          placeholder="Your name"
+        />
+        <button id="save-player-name">Start Game</button>
+      </div>
+    </div>
+    <!-- Firebase App -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+
+    <!-- Firestore Database -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+    <!-- Firebase Functions (will be used later for secure hit detection) -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-functions-compat.js"></script>
+
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyDwdvn_rKsrN2oQiJliMPT5APFzHzR3qjU",
+        authDomain: "whereswaldo-212b3.firebaseapp.com",
+        projectId: "whereswaldo-212b3",
+        storageBucket: "whereswaldo-212b3.firebasestorage.app",
+        messagingSenderId: "907907543138",
+        appId: "1:907907543138:web:bb63de1a0f05d8fb18e13b",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+      const functions = firebase.functions();
+    </script>
+
+    <script type="module" src="game.js"></script>
+    <script type="module" src="level6.js"></script>
+  </body>
+</html>

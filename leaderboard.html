@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Where's Waldo? - Leaderboard</title>
+    <link rel="stylesheet" href="home.css" />
+    <link rel="stylesheet" href="leaderboard.css" />
+  </head>
+  <body>
+    <header class="header">
+      <img src="assets/icons/waldoheader.jpg" alt="Waldo Icon" class="logo" />
+      <h1>
+        <span class="text-blue">Waldo</span>
+        <span class="text-red">Leaderboard</span>
+      </h1>
+      <a href="home.html" class="back-btn">← Back to Home</a>
+    </header>
+
+    <main class="leaderboard-container">
+      <div class="leaderboard-card">
+        <table>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Player Name</th>
+              <th>Time (s)</th>
+              <th>Comment</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboard-body">
+            <!-- Rows will be populated by JS -->
+            <tr>
+              <td colspan="5" class="loading-text">Loading scores...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <!-- Firebase App -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <!-- Firestore Database -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyDwdvn_rKsrN2oQiJliMPT5APFzHzR3qjU",
+        authDomain: "whereswaldo-212b3.firebaseapp.com",
+        projectId: "whereswaldo-212b3",
+        storageBucket: "whereswaldo-212b3.firebasestorage.app",
+        messagingSenderId: "907907543138",
+        appId: "1:907907543138:web:bb63de1a0f05d8fb18e13b",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+    </script>
+    <script src="leaderboard.js"></script>
+  </body>
+</html>

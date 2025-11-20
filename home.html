@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Where’s Waldo? Play Online | All Levels</title>
+
+    <!-- Primary SEO Meta -->
+    <meta
+      name="description"
+      content="Play Where’s Waldo online! Find Waldo, Odlaw, Wizard, and Wenda across 6 fun levels. Free browser game."
+    />
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:title" content="Where’s Waldo? Play Online" />
+    <meta
+      property="og:description"
+      content="Find Waldo across 6 fun levels. Play online for free."
+    />
+    <meta property="og:image" content="assets/preview.jpg" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Sharing -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Where’s Waldo? Play Online" />
+    <meta
+      name="twitter:description"
+      content="Find Waldo across 6 fun levels. Play online for free."
+    />
+    <meta name="twitter:image" content="assets/preview.jpg" />
+
+    <link rel="stylesheet" href="home.css" />
+  </head>
+  <body>
+    <header class="header">
+      <img src="assets/icons/waldoheader.png" alt="Waldo Icon" class="logo" />
+      <h1>
+        <span class="text-blue">Where’s</span>
+        <span class="text-red">Waldo?</span>
+        Play Online
+      </h1>
+    </header>
+
+    <main>
+      <section class="level-grid" aria-label="Waldo Levels">
+        <!-- Level template repeated for all 6 levels -->
+        <article class="level-card" data-link="level1.html">
+          <img
+            src="assets/waldo-scene.jpg"
+            alt="Where’s Waldo Level 1 Beach Scene"
+          />
+          <h2>Level 1</h2>
+          <div class="chars">
+            <img src="assets/icons/waldo.png" alt="Waldo" />
+            <img src="assets/icons/odlaw.png" alt="Odlaw" />
+            <img src="assets/icons/wizard.png" alt="Wizard" />
+          </div>
+        </article>
+
+        <article class="level-card" data-link="level2.html">
+          <img
+            src="assets/level2-scene.jpg"
+            alt="Where’s Waldo Level 2 Crowd Scene"
+          />
+          <h2>Level 2</h2>
+          <div class="chars">
+            <img src="assets/icons/waldo.png" alt="Waldo" />
+          </div>
+        </article>
+
+        <article class="level-card" data-link="level3.html">
+          <img
+            src="assets/level3-scene.jpg"
+            alt="Where’s Waldo Level 3 Winter Scene"
+          />
+          <h2>Level 3</h2>
+          <div class="chars">
+            <img src="assets/icons/waldo.png" alt="Waldo" />
+            <img src="assets/icons/odlaw.png" alt="Odlaw" />
+            <img src="assets/icons/wizard.png" alt="Wizard" />
+            <img src="assets/icons/wenda.png" alt="Wenda" />
+          </div>
+        </article>
+
+        <article class="level-card" data-link="level4.html">
+          <img
+            src="assets/level4-scene.jpg"
+            alt="Where’s Waldo Level 4 Beach Scene"
+          />
+          <h2>Level 4</h2>
+          <div class="chars">
+            <img src="assets/icons/waldo.png" alt="Waldo" />
+            <img src="assets/icons/odlaw.png" alt="Odlaw" />
+          </div>
+        </article>
+
+        <article class="level-card" data-link="level5.html">
+          <img
+            src="assets/level5-scene.jpg"
+            alt="Where’s Waldo Level 5 Beach Scene"
+          />
+          <h2>Level 5</h2>
+          <div class="chars">
+            <img src="assets/icons/waldo.png" alt="Waldo" />
+            <img src="assets/icons/odlaw.png" alt="Odlaw" />
+            <img src="assets/icons/wizard.png" alt="Wizard" />
+            <img src="assets/icons/wenda.png" alt="Wenda" />
+          </div>
+        </article>
+
+        <article class="level-card" data-link="level6.html">
+          <img
+            src="assets/level6-scene.jpg"
+            alt="Where’s Waldo Level 6 Village Scene"
+          />
+          <h2>Level 6</h2>
+          <div class="chars">
+            <img src="assets/icons/waldo.png" alt="Waldo" />
+          </div>
+        </article>
+      </section>
+
+      <section class="leaderboard-box">
+        <h2>Are You Waldo Expert?</h2>
+        <a href="leaderboard.html" class="leaderboard-btn">View Leaderboard</a>
+      </section>
+    </main>
+    <!-- Firebase App -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+
+    <!-- Firestore Database -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+    <!-- Firebase Functions (will be used later for secure hit detection) -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-functions-compat.js"></script>
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyDwdvn_rKsrN2oQiJliMPT5APFzHzR3qjU",
+        authDomain: "whereswaldo-212b3.firebaseapp.com",
+        projectId: "whereswaldo-212b3",
+        storageBucket: "whereswaldo-212b3.firebasestorage.app",
+        messagingSenderId: "907907543138",
+        appId: "1:907907543138:web:bb63de1a0f05d8fb18e13b",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+      const functions = firebase.functions();
+    </script>
+    <script src="home.js"></script>
+
+    <!-- SEO JSON-LD Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Where’s Waldo? Play Online",
+        "applicationCategory": "Game",
+        "genre": "Puzzle",
+        "url": "https://your-domain.com",
+        "description": "Play Where’s Waldo online across 6 levels. Free browser-based search puzzle.",
+        "gamePlatform": "Web Browser"
+      }
+    </script>
+  </body>
+</html>
