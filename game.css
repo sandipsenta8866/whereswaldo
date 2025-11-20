@@ -241,17 +241,83 @@
   }
 
   #status-bar {
-    flex-wrap: wrap;
+    position: -webkit-sticky; /* Safari support */
+    position: sticky;
+    top: 0; /* Stick to the very top */
+    width: 100%;
+    background: transparent;
+    backdrop-filter: none;
+    border-radius: 0;
+    padding: 5px 0; /* Slight padding for breathing room */
+    display: flex;
+    flex-wrap: nowrap;
     justify-content: center;
     gap: 10px;
+    z-index: 1000;
+    margin-top: 10px; /* Reduced margin since it's sticky */
+    box-shadow: none;
+
+    /* Reset fixed positioning properties */
+    bottom: auto;
+    left: auto;
+    transform: none;
+    max-width: none;
   }
 
   .char-status img {
-    width: 40px;
-    height: 40px;
+    width: 50px; /* Decreased size */
+    height: 50px; /* Decreased size */
+    border-radius: 50%; /* Make circular */
+    object-fit: cover; /* Ensure image covers the circle */
+    background: white; /* Optional: add background if transparent images look weird */
   }
 
-  .char-status .time {
-    font-size: 12px;
+  .header {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .header h1 {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 600px) {
+  /* 1. Global Padding for Mobile */
+  body {
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  /* 2. Leaderboard Mobile Adjustments */
+  #level-leaderboard-section {
+    padding: 10px;
+    margin: 20px auto;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .level-leaderboard-table th,
+  .level-leaderboard-table td {
+    padding: 8px 4px; /* Reduce padding */
+    font-size: 12px; /* Smaller font */
+  }
+
+  /* Reduce Rank column width */
+  .level-leaderboard-table td:first-child {
+    width: 30px;
+  }
+
+  /* Constrain Comment column width further on mobile */
+  .level-leaderboard-table td:nth-child(4) {
+    max-width: 80px;
+  }
+
+  /* Optional: Hide Date column on very small screens if it still overflows */
+  .level-leaderboard-table th:nth-child(5),
+  .level-leaderboard-table td:nth-child(5) {
+    display: none;
   }
 }

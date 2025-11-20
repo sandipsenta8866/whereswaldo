@@ -147,10 +147,8 @@ scene.addEventListener("click", (event) => {
   const rect = scene.getBoundingClientRect();
   lastClick.x = event.clientX - rect.left;
   lastClick.y = event.clientY - rect.top;
-  clickMenu.style.left = lastClick.x + "px";
-  clickMenu.style.top = lastClick.y + "px";
 
-  // Filter menu options
+  // 1. Filter menu options first
   const buttons = clickMenu.querySelectorAll("button");
   buttons.forEach((btn) => {
     const char = btn.dataset.char;
@@ -161,7 +159,21 @@ scene.addEventListener("click", (event) => {
     }
   });
 
+  // 2. Show menu to measure
   clickMenu.style.display = "block";
+
+  const menuWidth = clickMenu.offsetWidth;
+  const menuHeight = clickMenu.offsetHeight;
+
+  // 3. Smart positioning
+  let x = lastClick.x;
+  let y = lastClick.y;
+
+  if (x + menuWidth > rect.width) x -= menuWidth;
+  if (y + menuHeight > rect.height) y -= menuHeight;
+
+  clickMenu.style.left = x + "px";
+  clickMenu.style.top = y + "px";
 });
 
 // Handle menu selection
